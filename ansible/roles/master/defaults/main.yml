@@ -5,7 +5,8 @@ localBuildOutput: ../../../_output/local/go/bin
 admission_controllers: NamespaceLifecycle,LimitRanger,ServiceAccount,ResourceQuota
 
 kube_apiserver_bind_address: "0.0.0.0"
-kube_apiserver_insecure_bind_address: "127.0.0.1"
+#kube_apiserver_insecure_bind_address: "127.0.0.1"
+kube_apiserver_insecure_bind_address: "0.0.0.0"
 
 # etcd certificate configuration
 apiserver_etcd_use_certs: false
@@ -41,6 +42,7 @@ kube_apiserver_options:
   - "--service-account-key-file={{ kube_cert_dir }}/server.crt"
   - "--bind-address={{ kube_apiserver_bind_address }}"
   - "--apiserver-count={{ groups['masters']|length }}"
+  - "--storage-backend=etcd2"
 
 kube_controller_manager_options:
   - "--kubeconfig={{ kube_config_dir }}/controller-manager.kubeconfig"

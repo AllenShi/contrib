@@ -1,10 +1,10 @@
 [masters]
-172.16.150.123
+kubernode1.fyre.ibm.com
 
 [etcd:children]
 masters
 
 [nodes]
-172.16.152.174
-172.16.156.112
-172.16.163.140
+kubernode2.fyre.ibm.com
+kubernode3.fyre.ibm.com
+kubernode4.fyre.ibm.com
